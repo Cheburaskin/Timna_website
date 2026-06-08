@@ -402,9 +402,10 @@
       transition: border-color 0.2s;
     }
 
-    .form__field input:focus,
-    .form__field textarea:focus {
-      outline: none;
+    .form__field input:focus-visible,
+    .form__field textarea:focus-visible {
+      outline: 2px solid var(--clr-brown);
+      outline-offset: 2px;
       border-bottom: 2.5px solid var(--clr-brown);
     }
 
@@ -653,6 +654,18 @@
       }
     }
 
+    /* Nav toggle — hidden by default, shown on mobile via JS */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 2px solid var(--clr-bg);
+      color: var(--clr-bg);
+      border-radius: 4px;
+      padding: 6px 12px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
     /* High-contrast mode */
     @media (forced-colors: active) {
       .btn-submit {
@@ -679,15 +692,14 @@
   ============================================================ -->
   <header class="site-header" role="banner">
 
-    <a href="#" class="logo-link" aria-label="Timna Elements – home">
+    <a href="/" class="logo-link" aria-label="Timna Elements – home">
       <!-- Inline SVG logo reconstructed from Figma -->
       <img src="images/logo.svg" alt="Timna Elements" />
     </a>
 
     <!-- Mobile menu toggle (shown only on small screens) -->
     <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open navigation menu"
-      id="nav-toggle"
-      style="display:none; background:none; border:2px solid var(--clr-bg); color:var(--clr-bg); border-radius:4px; padding:6px 12px; font-size:14px; cursor:pointer;">Menu</button>
+      id="nav-toggle">Menu</button>
 
     <nav aria-label="Main navigation" id="main-nav">
       <ul class="site-nav">
@@ -742,7 +754,7 @@
     <section class="contact" id="contact" aria-labelledby="contact-heading">
 
       <!-- Left: Image + tagline -->
-      <div class="contact__visual" aria-hidden="false">
+      <div class="contact__visual">
         <img class="contact__visual-img" src="images/contact-bg.jpg"
           alt="Industrial copper and metal processing facility — workers handling recovered copper pipes and materials" />
         <div class="contact__visual-overlay" aria-hidden="true"></div>
@@ -849,7 +861,7 @@
 
     <div class="footer__inner">
 
-      <a href="#" class="footer__logo-link" aria-label="Timna Elements — back to top">
+      <a href="#" class="footer__logo-link" aria-label="Timna Elements — back to top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
         <img src="images/logo-footer.svg" alt="Timna Elements" width="209" height="62" />
       </a>
 
@@ -892,7 +904,7 @@
 
       </div>
 
-      <p class="footer__copy">©️ 2026 Timna Elements. All rights reserved.</p>
+      <p class="footer__copy">&copy; 2026 Timna Elements. All rights reserved.</p>
 
     </div>
   </footer>
@@ -1014,12 +1026,14 @@
       /* Success state */
       const submitBtn = form.querySelector('.btn-submit');
       submitBtn.disabled = true;
+      submitBtn.setAttribute('aria-busy', 'true');
       submitBtn.textContent = 'Sending…';
 
       /* Simulate async send */
       setTimeout(function () {
         form.reset();
         submitBtn.disabled = false;
+        submitBtn.removeAttribute('aria-busy');
         submitBtn.textContent = 'Send Message';
         const banner = document.getElementById('form-success');
         banner.classList.add('visible');
