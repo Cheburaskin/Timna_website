@@ -182,6 +182,11 @@
       text-decoration: underline;
     }
 
+    .site-nav a.active {
+      opacity: 1;
+      font-weight: 700;
+    }
+
     /* ============================================================
        HERO
     ============================================================ */
@@ -972,6 +977,19 @@
           btn.removeAttribute('aria-hidden');
         }
       }, { passive: true });
+    }());
+
+    /* ── Active nav link on scroll ────────────────────────── */
+    (function () {
+      const contactLink = document.querySelector('.site-nav a[href="#contact"]');
+      const contactSection = document.getElementById('contact');
+      if (!contactLink || !contactSection) return;
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          contactLink.classList.toggle('active', entry.isIntersecting);
+        });
+      }, { threshold: 0.15 });
+      observer.observe(contactSection);
     }());
 
     /* ── Scroll button keyboard support ───────────────────── */
