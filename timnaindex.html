@@ -34,6 +34,7 @@
       --clr-dark-red: #942E0F;
       --clr-brown: #2B160C;
       --clr-bg: #F9F9F9;
+      --clr-bg-alt: #F3EAE4;
       --clr-footer-bg: #D9562E;
       --font-serif: 'Young Serif', Georgia, serif;
       --font-sans: 'Alef', Arial, sans-serif;
@@ -305,6 +306,109 @@
       50% {
         transform: translateY(10px);
       }
+    }
+
+    /* ============================================================
+       CONTENT SECTIONS  (Mission / Technology / Applications)
+    ============================================================ */
+    .section {
+      scroll-margin-top: 86px;
+    }
+
+    .section--alt {
+      background: var(--clr-bg-alt);
+    }
+
+    .section__inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 96px 32px;
+    }
+
+    .section__eyebrow {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--clr-primary);
+      margin-bottom: 16px;
+    }
+
+    .section__title {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 3vw, 44px);
+      line-height: 1.25;
+      color: var(--clr-brown);
+      margin-bottom: 28px;
+      max-width: 22ch;
+    }
+
+    .section__lead {
+      font-family: var(--font-sans);
+      font-size: clamp(17px, 1.6vw, 21px);
+      line-height: 1.7;
+      color: var(--clr-brown);
+      max-width: 65ch;
+    }
+
+    .section__intro {
+      font-family: var(--font-sans);
+      font-size: clamp(17px, 1.5vw, 20px);
+      line-height: 1.7;
+      color: var(--clr-brown);
+      max-width: 62ch;
+      margin-bottom: 48px;
+    }
+
+    /* Card grids */
+    .card-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .card-grid--two {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card-grid--apps {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .card {
+      background: var(--clr-bg);
+      border: 1px solid rgba(148, 46, 15, 0.18);
+      border-radius: 10px;
+      padding: 32px;
+    }
+
+    .section--alt .card {
+      background: #fff;
+    }
+
+    .card__label {
+      display: inline-block;
+      font-family: var(--font-btn);
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      color: var(--clr-primary);
+      margin-bottom: 12px;
+    }
+
+    .card__title {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      line-height: 1.3;
+      color: var(--clr-dark-red);
+      margin-bottom: 12px;
+    }
+
+    .card__text {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--clr-brown);
     }
 
     /* ============================================================
@@ -582,8 +686,8 @@
 
     .footer__about {
       font-family: var(--font-sans);
-      font-size: 26px;
-      line-height: 40px;
+      font-size: 16px;
+      line-height: 20px;
       color: var(--clr-bg);
     }
 
@@ -629,6 +733,43 @@
       .hero__content {
         max-width: 100%;
         padding-bottom: 100px;
+      }
+
+      /* Content sections */
+      .section__inner {
+        padding: 64px 20px;
+      }
+
+      .card-grid--two {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 24px;
+      }
+
+      /* Mobile nav: dropdown panel below the sticky header */
+      #main-nav {
+        position: absolute;
+        top: 86px;
+        left: 0;
+        right: 0;
+        background: var(--clr-primary);
+        padding: 8px 16px 16px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18);
+        display: none;
+      }
+
+      .site-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+
+      .site-nav a {
+        display: block;
+        width: 100%;
+        padding: 10px 8px;
       }
 
       .form__row {
@@ -702,8 +843,7 @@
   ============================================================ -->
   <header class="site-header" role="banner">
 
-    <a href="#" class="logo-link" aria-label="Timna Elements – home"
-      onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+    <a href="#" class="logo-link" aria-label="Timna Elements – home" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
       <!-- Inline SVG logo reconstructed from Figma -->
       <img src="images/logo.svg" alt="Timna Elements" />
     </a>
@@ -714,6 +854,9 @@
 
     <nav aria-label="Main navigation" id="main-nav">
       <ul class="site-nav">
+        <li><a href="#mission">Mission</a></li>
+        <li><a href="#technology">Technology</a></li>
+        <li><a href="#applications">Applications</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -750,8 +893,8 @@
 
       </div>
 
-      <button class="scroll-btn" type="button" aria-label="Scroll down to the contact section"
-        onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+      <button class="scroll-btn" type="button" aria-label="Scroll down to the next section"
+        onclick="document.getElementById('mission').scrollIntoView({behavior:'smooth'})">
         <svg viewBox="0 0 136 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
           <path d="M4 4 L68 26 L132 4" stroke="#D9562E" stroke-width="8" stroke-linecap="round"
             stroke-linejoin="round" />
@@ -760,6 +903,121 @@
 
     </section>
     <!-- /HERO -->
+
+    <!-- ── MISSION ──────────────────────────────────────────── -->
+    <!-- DRAFT COPY: review wording before publishing. -->
+    <section class="section" id="mission" aria-labelledby="mission-heading">
+      <div class="section__inner">
+        <p class="section__eyebrow">Our Mission</p>
+        <h2 id="mission-heading" class="section__title">
+          Securing critical metals for a sustainable future
+        </h2>
+        <p class="section__lead">
+          The energy transition runs on critical metals — the copper, nickel and other
+          elements at the heart of batteries, power grids and clean technologies. Yet a
+          large share of the world's metal-bearing resources is too low-grade or too
+          complex for conventional extraction to recover economically, leaving real value
+          stranded and global supply under strain. Timna Elements exists to change that:
+          to make the cleaner, more complete recovery of critical metals possible from the
+          resources the industry has long overlooked.
+        </p>
+      </div>
+    </section>
+    <!-- /MISSION -->
+
+    <!-- ── TECHNOLOGY ───────────────────────────────────────── -->
+    <!-- DRAFT COPY: confirm the technical descriptions and the TLeach™ / TExtract™
+         wording with the team before this goes live. -->
+    <section class="section section--alt" id="technology" aria-labelledby="technology-heading">
+      <div class="section__inner">
+        <p class="section__eyebrow">Our Technology</p>
+        <h2 id="technology-heading" class="section__title">
+          An electro-catalytic platform for selective metal recovery
+        </h2>
+        <p class="section__intro">
+          At the core of Timna Elements is a modular, electro-catalytic process that targets
+          and recovers specific metals under mild operating conditions — replacing the harsh
+          reagents and energy-intensive steps that define conventional hydrometallurgy.
+        </p>
+
+        <div class="card-grid card-grid--two">
+
+          <div class="card">
+            <span class="card__label">TLeach™</span>
+            <h3 class="card__title">Selective dissolution</h3>
+            <p class="card__text">
+              Mobilises target metals from low-grade ores, tailings and secondary
+              feedstocks, bringing them into solution with high selectivity and
+              minimal waste.
+            </p>
+          </div>
+
+          <div class="card">
+            <span class="card__label">TExtract™</span>
+            <h3 class="card__title">Selective recovery</h3>
+            <p class="card__text">
+              Recovers the dissolved metals as high-purity products through a process
+              designed to be efficient, scalable and environmentally responsible.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- /TECHNOLOGY -->
+
+    <!-- ── APPLICATIONS ─────────────────────────────────────── -->
+    <!-- DRAFT COPY: adjust the feedstock list to match your actual target markets. -->
+    <section class="section" id="applications" aria-labelledby="applications-heading">
+      <div class="section__inner">
+        <p class="section__eyebrow">Applications</p>
+        <h2 id="applications-heading" class="section__title">
+          Value from resources others leave behind
+        </h2>
+        <p class="section__intro">
+          The platform is built to perform across a range of feedstocks where
+          conventional processing falls short — turning overlooked material into a
+          reliable source of critical metals.
+        </p>
+
+        <div class="card-grid card-grid--apps">
+
+          <div class="card">
+            <h3 class="card__title">Low-grade ores</h3>
+            <p class="card__text">
+              Recovering metals from deposits that fall below the economic threshold
+              of conventional extraction.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="card__title">Mine tailings &amp; waste</h3>
+            <p class="card__text">
+              Extracting residual value from tailings and process waste streams while
+              reducing their environmental footprint.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="card__title">Secondary &amp; recycled streams</h3>
+            <p class="card__text">
+              Reclaiming critical metals from electronic and industrial scrap to support
+              a circular supply chain.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="card__title">Resilient supply</h3>
+            <p class="card__text">
+              Helping build more independent, regional sources of the critical metals
+              the energy transition depends on.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- /APPLICATIONS -->
 
     <!-- ── CONTACT ───────────────────────────────────────────── -->
     <section class="contact" id="contact" aria-labelledby="contact-heading">
@@ -872,8 +1130,7 @@
 
     <div class="footer__inner">
 
-      <a href="#" class="footer__logo-link" aria-label="Timna Elements — back to top"
-        onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+      <a href="#" class="footer__logo-link" aria-label="Timna Elements — back to top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
         <img src="images/logo-footer.svg" alt="Timna Elements" width="209" height="62" />
       </a>
 
@@ -895,7 +1152,7 @@
             <span>contact@timna.earth</span>
           </a>
 
-          <a href="https://linkedin.com/company/timna-elements" class="footer__contact-link" target="_blank"
+          <a href="https://www.linkedin.com/company/timna-elements" class="footer__contact-link" target="_blank"
             rel="noopener noreferrer" aria-label="Timna Elements on LinkedIn (opens in new tab)">
             <!-- LinkedIn icon -->
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
@@ -929,11 +1186,14 @@
     (function () {
       const toggle = document.getElementById('nav-toggle');
       const nav = document.getElementById('main-nav');
+      const MOBILE = 768; /* matches the CSS breakpoint */
 
       function checkBreakpoint() {
-        if (window.innerWidth <= 600) {
+        if (window.innerWidth <= MOBILE) {
           toggle.style.display = 'inline-block';
-          nav.style.display = nav.getAttribute('aria-hidden') === 'true' ? 'none' : 'block';
+          const open = toggle.getAttribute('aria-expanded') === 'true';
+          nav.style.display = open ? 'block' : 'none';
+          nav.setAttribute('aria-hidden', String(!open));
         } else {
           toggle.style.display = 'none';
           nav.style.display = '';
@@ -955,7 +1215,7 @@
       /* Close menu when a nav link is activated */
       nav.querySelectorAll('a').forEach(function (link) {
         link.addEventListener('click', function () {
-          if (window.innerWidth <= 600) {
+          if (window.innerWidth <= MOBILE) {
             toggle.setAttribute('aria-expanded', 'false');
             nav.setAttribute('aria-hidden', 'true');
             nav.style.display = 'none';
@@ -984,22 +1244,33 @@
 
     /* ── Active nav link on scroll ────────────────────────── */
     (function () {
-      const contactLink = document.querySelector('.site-nav a[href="#contact"]');
-      const contactSection = document.getElementById('contact');
-      if (!contactLink || !contactSection) return;
+      const navLinks = Array.from(document.querySelectorAll('.site-nav a[href^="#"]'));
+      const sectionToLink = new Map();
+      navLinks.forEach(function (link) {
+        const id = link.getAttribute('href').slice(1);
+        const section = document.getElementById(id);
+        if (section) sectionToLink.set(section, link);
+      });
+      if (!sectionToLink.size) return;
+
       const observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
-          contactLink.classList.toggle('active', entry.isIntersecting);
+          if (entry.isIntersecting) {
+            navLinks.forEach(function (l) { l.classList.remove('active'); });
+            const link = sectionToLink.get(entry.target);
+            if (link) link.classList.add('active');
+          }
         });
-      }, { threshold: 0.15 });
-      observer.observe(contactSection);
+      }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+      sectionToLink.forEach(function (_link, section) { observer.observe(section); });
     }());
 
     /* ── Scroll button keyboard support ───────────────────── */
     document.querySelector('.scroll-btn').addEventListener('keydown', function (e) {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('mission').scrollIntoView({ behavior: 'smooth' });
       }
     });
 
