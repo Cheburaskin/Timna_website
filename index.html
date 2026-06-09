@@ -524,10 +524,18 @@
       margin: 0 auto;
     }
 
+    .footer__logo-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
     .footer__logo-link {
       display: inline-flex;
       border-radius: 4px;
-      margin-bottom: 24px;
     }
 
     .footer__logo-link img {
@@ -592,6 +600,12 @@
       font-family: var(--font-sans);
       font-size: 16px;
       color: var(--clr-dark-red);
+    }
+
+    .footer__partner-img {
+      height: 62px;
+      width: auto;
+      mix-blend-mode: multiply;
     }
 
 
@@ -872,10 +886,16 @@
 
     <div class="footer__inner">
 
-      <a href="#" class="footer__logo-link" aria-label="Timna Elements — back to top"
-        onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
-        <img src="images/logo-footer.svg" alt="Timna Elements" width="209" height="62" />
-      </a>
+      <div class="footer__logo-row">
+        <a href="#" class="footer__logo-link" aria-label="Timna Elements — back to top"
+          onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+          <img src="images/logo-footer.svg" alt="Timna Elements" width="209" height="62" />
+        </a>
+        <img class="footer__partner-img" src="images/NetZero_logo.png" alt="NetZero Tech Ventures" loading="lazy" />
+        <img class="footer__partner-img" src="images/AII_logo.png" alt="Israel Innovation Authority" loading="lazy" />
+        <img class="footer__partner-img" src="images/Technion_logo.png" alt="Technion Israel Institute of Technology" loading="lazy" />
+        <img class="footer__partner-img" src="images/T3_logo.png" alt="Technion Technology Transfer" loading="lazy" />
+      </div>
 
       <hr class="footer__divider" aria-hidden="true" />
 
