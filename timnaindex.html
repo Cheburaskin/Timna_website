@@ -412,6 +412,79 @@
     }
 
     /* ============================================================
+       RESEARCH SECTION
+    ============================================================ */
+    .research__header {
+      margin-bottom: 40px;
+    }
+
+    .research__grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .section--research .section__title {
+      color: #5555B2;
+      max-width: 40ch;
+    }
+
+    .research__pipeline {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: auto;
+    }
+
+    .research__stage-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      flex: 1;
+    }
+
+    .research__icon {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      height: 130px;
+    }
+
+    .research__icon svg {
+      width: 130px;
+      height: auto;
+    }
+
+    .research__stage {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: clamp(11px, 1vw, 16px);
+      line-height: 1.4;
+      color: var(--clr-brown);
+      white-space: nowrap;
+      text-align: center;
+    }
+
+    .research__desc {
+      font-family: var(--font-sans);
+      font-size: clamp(10px, 0.85vw, 13px);
+      line-height: 1.4;
+      color: var(--clr-brown);
+      text-align: center;
+      opacity: 0.75;
+    }
+
+    .research__arrow {
+      flex-shrink: 0;
+      width: 24px;
+      align-self: flex-start;
+      margin-top: 56px;
+    }
+
+
+    /* ============================================================
        CONTACT SECTION
     ============================================================ */
     .contact {
@@ -758,6 +831,11 @@
         grid-template-columns: 1fr;
       }
 
+      .research__grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
       .card {
         padding: 24px;
       }
@@ -886,6 +964,7 @@
         <li><a href="#mission">Mission</a></li>
         <li><a href="#technology">Technology</a></li>
         <li><a href="#applications">Applications</a></li>
+        <li><a href="#research">Research</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -1048,6 +1127,105 @@
     </section>
     <!-- /APPLICATIONS -->
 
+    <!-- ── RESEARCH ────────────────────────────────────────── -->
+    <section class="section section--research" id="research" aria-labelledby="research-heading">
+      <div class="section__inner">
+        <!-- Title full-width above the grid -->
+        <div class="research__header">
+          <p class="section__eyebrow">Research</p>
+          <h2 id="research-heading" class="section__title">
+            Five years of Technion research.<br>Now a commercial reality.
+          </h2>
+        </div>
+
+        <div class="research__grid">
+
+          <!-- Left: body text -->
+          <div class="research__left">
+            <p class="section__intro">
+              Timna Elements emerged from more than five years of research at the Technion – Israel Institute of
+              Technology, one of the world's leading engineering and applied science institutions. The company's
+              technology foundation was developed under the leadership of Youri Gendel and combines expertise in
+              electrochemistry, hydrometallurgy, and resource recovery.
+            </p>
+            <p class="section__lead">
+              This research established the scientific principles, experimental validation, and intellectual property
+              that underpin Timna's platform today. With patent-protected innovations and a strong academic heritage,
+              Timna is translating world-class science into industrial solutions for the critical minerals sector.
+            </p>
+          </div>
+
+          <!-- Right: icons + pipeline -->
+          <div class="research__right">
+
+            <!-- icon + label columns with arrows between -->
+            <div class="research__pipeline">
+
+              <div class="research__stage-col">
+                <div class="research__icon" aria-hidden="true">
+                  <svg width="100" height="112" viewBox="0 0 140 186" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0" y="0" width="116.78" height="156" rx="2" fill="#D9562E" opacity="0.5" />
+                    <rect x="9.81" y="9.81" width="98" height="15" rx="2" fill="#D9562E" opacity="0.3" />
+                    <rect x="9.81" y="34.81" width="98" height="15" rx="2" fill="#D9562E" opacity="0.3" />
+                    <rect x="9.81" y="59.81" width="98" height="15" rx="2" fill="#D9562E" opacity="0.3" />
+                    <rect x="9.81" y="84.81" width="98" height="15" rx="2" fill="#D9562E" opacity="0.3" />
+                    <rect x="9.81" y="109.81" width="98" height="15" rx="2" fill="#D9562E" opacity="0.3" />
+                    <rect x="9.81" y="134.81" width="65" height="15" rx="2" fill="#D9562E" opacity="0.3" />
+                    <g transform="translate(42,30)">
+                      <path
+                        d="M90.7173 100C89.3021 100 87.9697 99.4482 86.9685 98.4458L58.5128 69.9539C57.3667 68.8063 56.8467 67.2521 56.9787 65.7367L54.5623 63.3173C48.7309 67.3972 41.9113 69.5446 34.7269 69.5446C15.5796 69.5446 0 53.9452 0 34.7736C0 15.602 15.5796 0 34.7295 0C53.8793 0 69.4589 15.5994 69.4589 34.7736C69.4589 42.8064 66.7088 50.5207 61.6769 56.7117L63.8863 58.9239C64.0079 58.9162 64.1295 58.911 64.2536 58.911C65.6688 58.911 66.9986 59.4627 67.9998 60.4652L96.4555 88.9571C98.5226 91.0268 98.5226 94.3918 96.4555 96.4615L94.4712 98.4509C93.47 99.4534 92.1402 100.005 90.7224 100.005L90.7173 100ZM34.7295 10.6725C21.4576 10.6725 10.6615 21.4822 10.6615 34.771C10.6615 48.0598 21.4576 58.8695 34.7295 58.8695C48.0014 58.8695 58.7974 48.0598 58.7974 34.771C58.7974 21.4822 48.0014 10.6725 34.7295 10.6725Z"
+                        fill="#D9562E" />
+                    </g>
+                  </svg>
+                </div>
+                <span class="research__stage">RESEARCH</span>
+                <span class="research__desc">Fundamental scientific foundation</span>
+              </div>
+
+              <svg class="research__arrow" viewBox="0 0 40 18" fill="none"
+                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M0 6 H26 V1 L39 9 L26 17 V12 H0 Z" fill="#5555B2" />
+              </svg>
+
+              <div class="research__stage-col">
+                <div class="research__icon" aria-hidden="true">
+                  <svg width="100" height="100" viewBox="0 0 180 179" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path opacity="0.5"
+                      d="M98.0998 5.86258C101.224 -3.67648 115.482 -0.856032 114.697 9.14566C114.057 17.3231 124.305 21.5446 129.668 15.3123C136.226 7.68943 148.311 15.7197 143.738 24.6621C140.001 31.9721 147.843 39.7737 155.197 36.0569C164.189 31.5095 172.264 43.5273 164.599 50.0488C158.332 55.3795 162.577 65.5731 170.8 64.9369C180.857 64.1589 183.694 78.3347 174.101 81.4417C166.259 83.9835 166.259 95.0156 174.101 97.5548C183.694 100.662 180.857 114.84 170.8 114.06C162.577 113.423 158.332 123.614 164.599 128.948C172.264 135.469 164.189 147.487 155.197 142.94C147.846 139.223 140.001 147.022 143.738 154.334C148.311 163.277 136.226 171.307 129.668 163.684C124.308 157.452 114.057 161.673 114.697 169.851C115.479 179.853 101.224 182.673 98.0998 173.134C95.5438 165.335 84.4501 165.335 81.8967 173.134C78.7724 182.673 64.5147 179.853 65.2997 169.851C65.9394 161.673 55.6915 157.452 50.3284 163.684C43.7705 171.307 31.6855 163.277 36.2583 154.334C39.9959 147.024 32.1534 139.223 24.7999 142.94C15.8075 147.487 7.73239 135.469 15.3978 128.948C21.665 123.617 17.4199 113.423 9.19675 114.06C-0.860816 114.838 -3.69702 100.662 5.89533 97.5548C13.7379 95.013 13.7379 83.9809 5.89533 81.4417C-3.69702 78.3347 -0.860816 64.1563 9.19675 64.9369C17.4199 65.5731 21.665 55.3821 15.3978 50.0488C7.73239 43.5273 15.8075 31.5095 24.7999 36.0569C32.1507 39.7737 39.9959 31.9747 36.2583 24.6621C31.6855 15.7197 43.7705 7.68943 50.3284 15.3123C55.6889 21.5446 65.9394 17.3231 65.2997 9.14566C64.5173 -0.856032 78.7724 -3.67648 81.8967 5.86258C84.4527 13.6615 95.5464 13.6615 98.0998 5.86258Z"
+                      fill="#D9562E" />
+                    <path d="M 48 92 L 76 122 L 134 58" stroke="#D9562E" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                  </svg>
+                </div>
+                <span class="research__stage">VALIDATED</span>
+                <span class="research__desc">Extensive laboratory validation</span>
+              </div>
+
+              <svg class="research__arrow" viewBox="0 0 40 18" fill="none"
+                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M0 6 H26 V1 L39 9 L26 17 V12 H0 Z" fill="#5555B2" />
+              </svg>
+
+              <div class="research__stage-col">
+                <div class="research__icon" aria-hidden="true">
+                  <svg width="100" height="82" viewBox="0 0 207 169" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M1.76913 95.1812L42.3869 66.1367C45.1759 64.1414 49.0422 66.1458 49.0422 69.5863V86.4107C49.0422 89.8542 52.9144 91.8556 55.7035 89.8542L88.7182 66.1579C91.5072 64.1565 95.3795 66.1579 95.3795 69.6014V86.4077C95.3795 89.8512 99.2517 91.8526 102.041 89.8512L135.055 66.1549C137.845 64.1535 141.717 66.1549 141.717 69.5984V115.189C141.717 117.526 143.603 119.422 145.929 119.422H150.68C152.912 119.422 154.757 117.674 154.886 115.434L161.343 3.98767C161.472 1.75047 163.316 0 165.549 0H178.372C180.598 0 182.443 1.7414 182.575 3.97558L189.315 115.443C189.45 117.677 191.291 119.419 193.518 119.419H202.791C205.117 119.419 207.003 121.314 207.003 123.651V164.767C207.003 167.104 205.117 169 202.791 169H4.21221C1.88647 169 0 167.104 0 164.767V98.6246C0 97.2551 0.65891 95.9702 1.76913 95.1751V95.1812ZM30.0872 118.518H18.9549C16.6292 118.518 14.7427 120.413 14.7427 122.75V132.597C14.7427 134.934 16.6292 136.83 18.9549 136.83H30.0872C32.413 136.83 34.2994 134.934 34.2994 132.597V122.75C34.2994 120.413 32.413 118.518 30.0872 118.518ZM76.4215 118.518H65.2893C62.9635 118.518 61.077 120.413 61.077 122.75V132.425C61.077 134.762 62.9635 136.657 65.2893 136.657H76.4215C78.7473 136.657 80.6337 134.762 80.6337 132.425V122.75C80.6337 120.413 78.7473 118.518 76.4215 118.518ZM107.411 122.75V132.425C107.411 134.762 109.298 136.657 111.624 136.657H122.756C125.082 136.657 126.968 134.762 126.968 132.425V122.75C126.968 120.413 125.082 118.518 122.756 118.518H111.624C109.298 118.518 107.411 120.413 107.411 122.75Z"
+                      fill="#D9562E" />
+                  </svg>
+                </div>
+                <span class="research__stage">COMMERCIALIZING</span>
+                <span class="research__desc">Advancing toward industrial implementation</span>
+              </div>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /RESEARCH -->
+
     <!-- ── CONTACT ───────────────────────────────────────────── -->
     <section class="contact" id="contact" aria-labelledby="contact-heading">
 
@@ -1166,7 +1344,8 @@
         </a>
         <img class="footer__partner-img" src="images/NetZero_logo.png" alt="NetZero Tech Ventures" loading="lazy" />
         <img class="footer__partner-img" src="images/AII_logo.png" alt="Israel Innovation Authority" loading="lazy" />
-        <img class="footer__partner-img" src="images/Technion_logo.png" alt="Technion Israel Institute of Technology" loading="lazy" />
+        <img class="footer__partner-img" src="images/Technion_logo.png" alt="Technion Israel Institute of Technology"
+          loading="lazy" />
         <img class="footer__partner-img" src="images/T3_logo.png" alt="Technion Technology Transfer" loading="lazy" />
       </div>
 
