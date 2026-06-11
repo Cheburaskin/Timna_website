@@ -1084,24 +1084,37 @@
         return;
       }
 
-      /* Success state */
       const submitBtn = form.querySelector('.btn-submit');
       submitBtn.disabled = true;
       submitBtn.setAttribute('aria-busy', 'true');
       submitBtn.textContent = 'Sending…';
 
-      /* Simulate async send */
-      setTimeout(function () {
-        form.reset();
-        submitBtn.disabled = false;
-        submitBtn.removeAttribute('aria-busy');
-        submitBtn.textContent = 'Send Message';
-        const banner = document.getElementById('form-success');
-        banner.classList.add('visible');
-        banner.focus();
-        /* Auto-hide after 8 s */
-        setTimeout(function () { banner.classList.remove('visible'); }, 8000);
-      }, 800);
+      fetch('https://formspree.io/f/mrevaoky', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          submitBtn.disabled = false;
+          submitBtn.removeAttribute('aria-busy');
+          submitBtn.textContent = 'Send Message';
+          if (data.ok) {
+            form.reset();
+            const banner = document.getElementById('form-success');
+            banner.classList.add('visible');
+            banner.focus();
+            setTimeout(function () { banner.classList.remove('visible'); }, 8000);
+          } else {
+            alert('Something went wrong. Please try again or email us directly at contact@timna.earth.');
+          }
+        })
+        .catch(function () {
+          submitBtn.disabled = false;
+          submitBtn.removeAttribute('aria-busy');
+          submitBtn.textContent = 'Send Message';
+          alert('Network error. Please check your connection and try again.');
+        });
     }
   </script>
 
