@@ -810,6 +810,11 @@
       }
     }
 
+    .br-desktop { display: none; }
+    @media (min-width: 769px) {
+      .br-desktop { display: inline; }
+    }
+
     @media (max-width: 768px) {
       .site-header {
         padding: 0 16px;
@@ -1090,7 +1095,7 @@
       <div class="section__inner">
         <p class="section__eyebrow">Our Technology</p>
         <h2 id="technology-heading" class="section__title">
-          An electro-catalytic platform<br>for selective metal recovery
+          An electro-catalytic platform<br class="br-desktop">for selective metal recovery
         </h2>
         <p class="section__intro">
           At the core of Timna Elements is a modular, electro-catalytic process that targets
